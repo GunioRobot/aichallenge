@@ -16,7 +16,7 @@ $(EXECUTABLE): $(OBJECTS)
 .cc.o: *.h
 	$(CC) $(CFLAGS) $< -o $@
 
-clean: 
+clean:
 	-rm -f ${EXECUTABLE} ${OBJECTS} *.d
 	-rm -f debug.txt
 

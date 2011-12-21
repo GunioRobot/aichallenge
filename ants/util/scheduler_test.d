@@ -1,4 +1,4 @@
-// compile with: dmd -O -release scheduler_test.d 
+// compile with: dmd -O -release scheduler_test.d
 module scheduler_test;
 
 import std.stdio;
@@ -15,12 +15,12 @@ int main(string[] args)
 		stderr.writefln("The syntax is: %s <sleep time in ms>", args[0]);
 		return 1;
 	}
-	
+
 	long interval = to!long(args[1]);
 	stdout.writefln("Running scheduler test with %s ms sleep intervals. Every delay of 10%% or more", interval);
 	stdout.writeln ("will be logged in addition to the current maximum delay.");
-	stdout.writeln(); 
-	stdout.writeln("timestamp                | delay >= 10% | current maximum | new maximum ?"); 
+	stdout.writeln();
+	stdout.writeln("timestamp                | delay >= 10% | current maximum | new maximum ?");
 	stdout.writeln("-------------------------+--------------+-----------------+--------------");
 
 	long max = 0;

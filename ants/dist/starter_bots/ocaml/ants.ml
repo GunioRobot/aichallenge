@@ -1,5 +1,5 @@
 (* ocaml Ants starter package. Code has been borrowed from the ocaml
-PlanetWars starter package and adapted. If you find any bugs or make 
+PlanetWars starter package and adapted. If you find any bugs or make
 any improvements, please post to the forum or upload a fix! *)
 
 let out_chan = stderr (* open_out "mybot_err.log" *);;
@@ -8,8 +8,8 @@ let out_chan = stderr (* open_out "mybot_err.log" *);;
  *)
 let get_time () = Unix.gettimeofday ();;
 
-let ddebug s = 
-   output_string out_chan s; 
+let ddebug s =
+   output_string out_chan s;
    flush out_chan
 ;;
 
@@ -27,7 +27,7 @@ type game_setup =
  }
 ;;
 
-type mapb = 
+type mapb =
  {
    content : int;
    seen : int
@@ -43,13 +43,13 @@ class ant ~row ~col ~owner =
       method col = col
       method owner = owner
       method to_string =
-         Printf.sprintf "Ant at %d, %d belongs to player %d" 
+         Printf.sprintf "Ant at %d, %d belongs to player %d"
             row col owner;
    end
 ;;
 
 type tgame_state =
-  { 
+  {
     setup : game_setup;
     turn : int;
     my_ants : ant list;
@@ -58,7 +58,7 @@ type tgame_state =
     enemy_hills : ((int * int) * int) list;
     dead_ants : ant list;
     food : (int * int) list;
-    tmap: mapb array array; 
+    tmap: mapb array array;
     go_time: float;
  }
 ;;
@@ -85,9 +85,9 @@ let tile_of_int c =
    else `Dead
 ;;
 
-let string_of_dir d = 
+let string_of_dir d =
    match d with
-    | `N -> "N" 
+    | `N -> "N"
     | `E -> "E"
     | `S -> "S"
     | `W -> "W"
@@ -114,35 +114,35 @@ let set_loadtime gstate v =
    {gstate with setup = {gstate.setup with loadtime = v}}
 ;;
 
-let set_turntime gstate v = 
+let set_turntime gstate v =
    {gstate with setup = {gstate.setup with turntime = v}}
 ;;
 
-let set_rows gstate v = 
+let set_rows gstate v =
    {gstate with setup = {gstate.setup with rows = v}}
 ;;
 
-let set_cols gstate v = 
+let set_cols gstate v =
    {gstate with setup = {gstate.setup with cols = v}}
 ;;
 
-let set_turns gstate v = 
+let set_turns gstate v =
    {gstate with setup = {gstate.setup with turns = v}}
 ;;
 
-let set_viewradius2 gstate v = 
+let set_viewradius2 gstate v =
    {gstate with setup = {gstate.setup with viewradius2 = v}}
 ;;
 
-let set_attackradius2 gstate v = 
+let set_attackradius2 gstate v =
    {gstate with setup = {gstate.setup with attackradius2 = v}}
 ;;
 
-let set_spawnradius2 gstate v = 
+let set_spawnradius2 gstate v =
    {gstate with setup = {gstate.setup with spawnradius2 = v}}
 ;;
 
-let set_player_seed gstate v = 
+let set_player_seed gstate v =
    {gstate with setup = {gstate.setup with player_seed = v}}
 ;;
 
@@ -155,7 +155,7 @@ let sscanf_cps fmt cont_ok cont_fail s =
   with _ -> cont_fail s
 
 let add_food gstate row col =
-   gstate.tmap.(row).(col) <- 
+   gstate.tmap.(row).(col) <-
       {gstate.tmap.(row).(col) with content = (int_of_tile `Food)};
    {gstate with food = ((row, col) :: gstate.food)}
 ;;
@@ -163,7 +163,7 @@ let add_food gstate row col =
 (*
 let remove_food gstate row col =
    if gstate.tmap.(row).(col).content = (int_of_tile `Food) then
-      gstate.tmap.(row).(col) <- 
+      gstate.tmap.(row).(col) <-
          {gstate.tmap.(row).(col) with content = (int_of_tile `Land)};
    {gstate with food = (List.filter (fun p -> not (p = (row, col)))
                         gstate.food)}
@@ -171,7 +171,7 @@ let remove_food gstate row col =
 *)
 
 let add_water gstate row col =
-   gstate.tmap.(row).(col) <- 
+   gstate.tmap.(row).(col) <-
       {gstate.tmap.(row).(col) with content = (int_of_tile `Water)};
    gstate
 ;;
@@ -205,7 +205,7 @@ let add_hill gstate row col owner =
        | 0 ->
             {gstate with my_hills = (((row, col), owner) :: gstate.my_hills)}
        | n ->
-            {gstate with enemy_hills = 
+            {gstate with enemy_hills =
                (((row, col), owner) :: gstate.enemy_hills)}
      )
    with _ -> gstate
@@ -214,7 +214,7 @@ let add_hill gstate row col owner =
 let add_ant gstate row col owner =
    try
      (
-      gstate.tmap.(row).(col) <- 
+      gstate.tmap.(row).(col) <-
          {gstate.tmap.(row).(col) with content = (100 + owner)};
       let new_ant = new ant row col owner in
       match owner with
@@ -229,7 +229,7 @@ let add_ant gstate row col owner =
 let add_dead_ant gstate row col owner =
    try
      (
-      gstate.tmap.(row).(col) <- 
+      gstate.tmap.(row).(col) <-
          {gstate.tmap.(row).(col) with content = (200 + owner)};
       let new_ant = new ant row col owner in
       {gstate with dead_ants = (new_ant :: gstate.dead_ants)}
@@ -238,13 +238,13 @@ let add_dead_ant gstate row col owner =
 ;;
 
 let initialize_map gstate =
-   let new_map = 
+   let new_map =
       Array.make_matrix gstate.setup.rows gstate.setup.cols proto_tile
    in
    {gstate with tmap = new_map}
 ;;
 
-(* This add_line function is a bit tricky to modify (make sure you get 
+(* This add_line function is a bit tricky to modify (make sure you get
 the parentheses in the right places if you change it). *)
 
 let add_line gstate line =
@@ -298,7 +298,7 @@ let update gstate lines =
          clear_gstate gstate
    in
    let ugstate =
-      List.fold_left add_line cgstate lines 
+      List.fold_left add_line cgstate lines
    in if ugstate.turn = 0 then
       if ugstate.setup.rows < 0
       || ugstate.setup.cols < 0 then
@@ -313,7 +313,7 @@ let update gstate lines =
 let read_lines () =
   let rec read_loop acc =
     let line = read_line () in
-    if String.length line >= 2 && String.sub line 0 2 = "go" 
+    if String.length line >= 2 && String.sub line 0 2 = "go"
     || String.length line >= 3 && String.sub line 0 3 = "end"
     || String.length line >= 5 && String.sub line 0 5 = "ready" then
      (
@@ -360,7 +360,7 @@ let step_unbound d (row, col) =
 ;;
 
 let rec wrap0 bound n =
-   if bound < 0 then 
+   if bound < 0 then
       (ddebug (Printf.sprintf "wrap0 below zero not allowed%!"); 0)
    else if n < 0 then wrap0 bound (n + bound)
    else if n >= bound then wrap0 bound (n - bound)
@@ -368,7 +368,7 @@ let rec wrap0 bound n =
 ;;
 
 let wrap_bound (rows, cols) (row, col) =
-   wrap0 rows row, 
+   wrap0 rows row,
    wrap0 cols col
 ;;
 
@@ -382,8 +382,8 @@ let step_dir d bounds (row, col) =
 let get_tile tmap (row, col) =
    try
       tile_of_int (tmap.(row).(col)).content
-   with e -> ddebug (Printf.sprintf 
-         "\nocaml Ants warning: exception getting tile %d, %d: %s\n" 
+   with e -> ddebug (Printf.sprintf
+         "\nocaml Ants warning: exception getting tile %d, %d: %s\n"
                row col (Printexc.to_string e));
          `Unseen
 ;;
@@ -428,7 +428,7 @@ let stepdistance_ndirection (rows, cols) (row1, col1) (row2, col2) =
 (* returns d, has a type declaration for some reason *)
 let direction bounds p1 p2 =
    let d, _ = stepdistance_ndirection bounds p1 p2 in
-      (d: (dir * dir)) 
+      (d: (dir * dir))
 ;;
 
 let fsquare_int i =
@@ -447,7 +447,7 @@ let distance2 (rows, cols) (src_row, src_col) (dst_row, dst_col) =
 (* distance (not squared) *)
 let distance b p1 p2 = sqrt (float_of_int (distance2 b p1 p2));;
 
-(* returns the distance and the two directions you might travel in to 
+(* returns the distance and the two directions you might travel in to
 get from p1 to p2 ignoring water, with `Stop(s) for none *)
 let distance_and_direction bounds p1 p2 =
    let d, (r, c) = stepdistance_ndirection bounds p1 p2 in
@@ -467,7 +467,7 @@ let paint_fov ant gstate =
    let ul_row, ul_col = wrap_bound bounds (c_row - r, c_col - r) in
    for count_rows = 0 to (r * 2) do
       for count_cols = 0 to (r * 2) do
-         let pr, pc = 
+         let pr, pc =
             wrap_bound bounds (ul_row + count_rows, ul_col + count_cols)
          in
          if distance2 bounds (pr, pc) ant#loc <= r2 then
@@ -499,10 +499,10 @@ let passable gstate (row, col) =
 let centre state = state.setup.rows / 2, state.setup.cols / 2;;
 
 (* How many milliseconds remain? *)
-let time_remaining state = 
+let time_remaining state =
    let turn_time = if state.turn = 0 then (float_of_int state.setup.loadtime)
    else (float_of_int state.setup.turntime) in
-      1000. *. 
+      1000. *.
       ((turn_time /. 1000.) -. ((get_time ()) -. state.go_time))
 ;;
 
@@ -543,12 +543,12 @@ class swrap state =
  end
 ;;
 
-(* Main game loop. Bots should define a main function taking a swrap for 
-an argument (see above), and then call loop main_function. See how the 
+(* Main game loop. Bots should define a main function taking a swrap for
+an argument (see above), and then call loop main_function. See how the
 starter bot in MyBot.ml does it if this doesn't make sense.
-   This loop function will exit the program, killing your bot if an 
-exception is raised. This is good for debugging, but should be changed 
-before release. Calling the finish_turn function might be a good 
+   This loop function will exit the program, killing your bot if an
+exception is raised. This is good for debugging, but should be changed
+before release. Calling the finish_turn function might be a good
 alternative. *)
 
 let loop engine =
@@ -575,7 +575,7 @@ let loop engine =
       enemy_hills = [];
       dead_ants = [];
       food = [];
-      tmap = Array.make_matrix 1 1 proto_tile; 
+      tmap = Array.make_matrix 1 1 proto_tile;
       go_time = 0.0;
      }
   in
@@ -583,7 +583,7 @@ let loop engine =
   let rec take_turn i gstate =
     match read gstate with
     | Some state ->
-        begin try 
+        begin try
          (
           wrap#set_state state;
           engine wrap;
@@ -591,7 +591,7 @@ let loop engine =
          )
         with exc ->
          (
-          ddebug (Printf.sprintf 
+          ddebug (Printf.sprintf
              "Exception in turn %d :\n" i);
           ddebug (Printexc.to_string exc);
           raise exc

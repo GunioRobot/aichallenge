@@ -28,7 +28,7 @@ if ($game_id !== FALSE and $game_id !== NULL) {
             echo $error_msg;
         }
     }
-    
+
 } else {
     echo '<p>Incorrect Game Number</p>';
 }

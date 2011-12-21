@@ -37,9 +37,9 @@
                :go #"go"
                :tile #"\w \d+ \d+"})
 
-(def map-tiles {"f" :food 
-                "w" :water 
-                "a" :ant 
+(def map-tiles {"f" :food
+                "w" :water
+                "a" :ant
                 "d" :dead-ant
                 "h" :hill})
 
@@ -79,14 +79,14 @@
           :water (update-in state [:water] conj loc)
           :dead-ant (update-in state [:dead] conj ant)
           :ant (if (zero? player)
-                 (update-in state [:ants] conj loc) 
+                 (update-in state [:ants] conj loc)
                  (update-in state [:enemies] conj ant))
           :food (update-in state [:food] conj loc)
           :hill (update-in state [:hill] conj loc))))
 
 (defn- update-state [state msg]
   (cond
-    (message? :turn msg) (merge init-state {:turn (get-turn msg) 
+    (message? :turn msg) (merge init-state {:turn (get-turn msg)
                                             :water (or (:water state) #{})})
     (message? :tile msg) (update-tile state (parse-tile msg))
     :else state))
@@ -96,7 +96,7 @@
              (= [r c] cur))
           ants))
 
-(defn- move-ant 
+(defn- move-ant
   "Return the location defined by moving the given ant in the given
   direction."
   [ant dir]
@@ -104,12 +104,12 @@
         rows (*game-info* :rows)
         cols (*game-info* :cols)
         [r c] (map + ant dir-vector)]
-    [(cond 
-       (< r 0) (+ rows r) 
+    [(cond
+       (< r 0) (+ rows r)
        (>= r rows) (- r rows)
        :else r)
-     (cond 
-       (< c 0) (+ cols c) 
+     (cond
+       (< c 0) (+ cols c)
        (>= c cols) (- c cols)
        :else c)]))
 
@@ -129,7 +129,7 @@
   [k]
   (*game-info* k))
 
-(defn move 
+(defn move
   "Issue a move command for the given ant, where the ant is [row col] and dir
   is [:north :south :east :west]"
   [[row col :as ant] dir]
@@ -140,24 +140,24 @@
   []
   (:turn *game-state*))
 
-(defn my-ants 
+(defn my-ants
   "Get a set of all ants belonging to you"
   []
   (:ants *game-state*))
 
-(defn enemy-ants 
+(defn enemy-ants
   "Get a set of all enemy ants where an enemy ant is [row col player-num]"
   []
   (:enemies *game-state*))
 
-(defn food 
+(defn food
   "Get a set of food locations"
   []
   (:food *game-state*))
 
 
-(defn unit-distance 
-  "Get the vector distance between two points on a torus. Negative deltas are 
+(defn unit-distance
+  "Get the vector distance between two points on a torus. Negative deltas are
   preserved."
   [loc loc2]
   (let [[dx dy] (map - loc2 loc)
@@ -171,28 +171,28 @@
              (* ady2 (/ (- dy) ady)))]
     [fx fy]))
 
-(defn distance 
+(defn distance
   "Get the euclidean distance between two locations on a torus"
   [loc loc2]
   (let [[dx dy] (unit-distance loc loc2)]
     (Math/sqrt (+ (Math/pow dx 2) (Math/pow dy 2)))))
 
-(defn unoccupied? 
+(defn unoccupied?
   "If the given location does not contain an ant or food, return loc"
   [loc]
-  (when (and (not (contains-ant? (food) loc)) 
+  (when (and (not (contains-ant? (food) loc))
              (not (contains-ant? (my-ants) loc))
              (not (contains-ant? (enemy-ants) loc)))
     loc))
 
-(defn passable? 
+(defn passable?
   "Deteremine if the given location can be moved to. If so, loc is returned."
   [loc]
   (when (and (not (contains? (*game-state* :water) loc))
              (unoccupied? loc))
     loc))
 
-(defn valid-move? 
+(defn valid-move?
   "Check if moving an ant in the given direction is passable. If so,
   return the location that the ant would then be in."
   [ant dir]
@@ -214,7 +214,7 @@
             [(offset-dir [row 0])
              (offset-dir [0 col])])))
 
-(defn start-game 
+(defn start-game
   "Play the game with the given bot."
   [bot]
   (when (message? :turn (read-line))
@@ -222,10 +222,10 @@
       (println "go") ;; we're "setup" so let's start
       (loop [cur (read-line)
              state {}]
-        (if (message? :end cur) 
+        (if (message? :end cur)
           (collect-stats)
           (do
-            (when (message? :go cur) 
+            (when (message? :go cur)
               (binding [*game-state* state]
                 (bot) (println "go")))
             (recur (read-line) (update-state state cur))))))))

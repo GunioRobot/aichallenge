@@ -20,7 +20,7 @@ class BufferedSource(inputStream: InputStream, bufferSize: Int)(implicit val cod
   def this(inputStream: InputStream)(implicit codec: Codec) = this(inputStream, DefaultBufSize)(codec)
   def reader() = new InputStreamReader(inputStream, codec.decoder)
   def bufferedReader() = new BufferedReader(reader(), bufferSize)
-  
+
   // The same reader has to be shared between the iterators produced
   // by iter and getLines. This is because calling hasNext can cause a
   // block of data to be read from the stream, which will then be lost
@@ -31,7 +31,7 @@ class BufferedSource(inputStream: InputStream, bufferSize: Int)(implicit val cod
     charReaderCreated = true
     bufferedReader()
   }
-  
+
   override lazy val iter = (
     Iterator
     continually (codec wrap charReader.read())
@@ -64,7 +64,7 @@ class BufferedSource(inputStream: InputStream, bufferSize: Int)(implicit val cod
     override def hasNext = {
       if (nextLine == null)
         nextLine = lineReader.readLine
-      
+
       nextLine != null
     }
     override def next(): String = {

@@ -7,7 +7,7 @@ inner join user
     on user.username = login_attempt.username
 group by naive_ip
 having count(distinct login_attempt.username) > 1;
- 
+
 -- get info about dup users
 select naive_ip, real_ip, login_attempt.username, user.email, count(*)
 from login_attempt

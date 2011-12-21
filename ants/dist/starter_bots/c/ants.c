@@ -205,7 +205,7 @@ void _init_game(struct game_info *game_info, struct game_state *game_state) {
                 game_state->dead_ants[dead_count].row = i;
                 game_state->dead_ants[dead_count].col = j;
                 game_state->dead_ants[dead_count].player = (current & (~0x80));
-                
+
                 game_info->map[game_info->cols*i + j] = '!';
             } else if (isupper(current)) {
                 --hill_count;
@@ -225,7 +225,7 @@ void _init_game(struct game_info *game_info, struct game_state *game_state) {
                 game_state->enemy_ants[enemy_count].row = i;
                 game_state->enemy_ants[enemy_count].col = j;
                 game_state->enemy_ants[enemy_count].player = current - 'a';
-            } 
+            }
         }
     }
 
@@ -311,7 +311,7 @@ void _init_map(char *data, struct game_info *game_info) {
             case 'h':
                 game_info->map[offset] = var3;
                 break;
-            default: 
+            default:
                 break;
 
         }

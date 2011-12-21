@@ -12,11 +12,11 @@ tools/: ../../../ants
 	# copy clean source tree of 'ants' over here
 	cd ../..; git checkout-index -a --prefix=ants/dist/tools/
 	mv ants tools
-	
+
 	# remove git typical entries
 	find tools -type f -name .gitignore     -delete
 	find tools -type f -name .gitattributes -delete
-	
+
 	# clean dist stuff and visualizer
 	mv tools/dist/sample_bots tools/
 	rm -Rf tools/dist
@@ -29,27 +29,27 @@ tools/: ../../../ants
 	# copy engine tools
 	cp ../../../worker/sandbox.py tools/
 	cp ../../../worker/engine.py tools/
-	
+
 	# remove "dist/" or "dist\" from paths in .cmd and .sh
 	sed -i 's/dist[/\]//g' tools/play_one_game*
 	#sed -i 's/dist[/\]//g' tools/util/block_test.*
 
-	# We compile the java visualizer from the original directory, 
+	# We compile the java visualizer from the original directory,
 	# reusing already downloaded external files, but use our new copy
 	# as the destination directory. (Keep in mind any options you may
 	# have overridden in visualizer/local.properties)
 	cd ../../visualizer; ant jar html-visualizer
 	cp ../../visualizer/build/deploy/visualizer.jar tools/
 	unzip ../../visualizer/build/html_visualizer.zip -d tools/visualizer
-	
+
 	#Include VERSION file
 	echo "This tools package was published on `date`." >> tools/VERSION
 	echo >> tools/VERSION
-	
+
 	echo "Last change in the ants/ folder was:" >> tools/VERSION
 	git log -n 1 ../../|grep -v Author >> tools/VERSION
 	echo >> tools/VERSION
-	
+
 	echo "Check https://github.com/aichallenge/aichallenge/ants/ for new versions." >> tools/VERSION
 
 clean:

@@ -79,7 +79,7 @@ EOT;
 echo "<h2>Submission Errors</h2>";
 echo <<<EOT
 <p>
-More detailed information about submission errors, what causes them, 
+More detailed information about submission errors, what causes them,
 and how to fix them coming within the next 48 hours.</p>
 <p>Meanwhile, check the forum for posts by other contestants with similar submission suspensions.</p>
 EOT;

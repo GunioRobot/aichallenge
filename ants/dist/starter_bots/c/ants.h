@@ -47,7 +47,7 @@ struct game_state {
     struct food *food;
     struct basic_ant *dead_ants;
     struct hill *hill;
-    
+
     int my_count;
     int enemy_count;
     int food_count;

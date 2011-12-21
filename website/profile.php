@@ -227,7 +227,7 @@ echo "</div>";
         $in_game_result = contest_query("select_in_game", $user_id);
         if ($in_game_result and mysql_num_rows($in_game_result) > 0) {
             echo "<p><strong>In Game:</strong> Playing in a game right now.</p>";
-        } else {    
+        } else {
             $next_game_result = contest_query("select_next_game_in", $user_id);
             if ($next_game_result) {
                 while ($next_game_row = mysql_fetch_assoc($next_game_result)) {
@@ -251,7 +251,7 @@ echo "</div>";
             }
         }
     }
-    echo "</div>"; 
+    echo "</div>";
 
     echo "<h3><span>Latest Games</span><div class=\"divider\" /></h3>";
     echo get_user_game_list($user_id, 0, True, 'profile_games.php');
@@ -269,7 +269,7 @@ echo "</div>";
                 if ($status_row['status'] == 100) {
                     echo "<p>Your current submission was deactivated on ".$status_row['shutdown_date']." (".
                          nice_ago($status_row['shutdown_date']).")</p>";
-                }                
+                }
                 echo "<input type=\"hidden\" name=\"update_key\" value=\"$update_key\" />
                       <input type=\"submit\" name=\"activate\" value=\"Activate\" />";
 
@@ -283,8 +283,8 @@ echo "</div>";
                 echo "</div>";
             }
         }
-    }       
-    
+    }
+
     echo "<h3><span>Recent Submissions</span><div class=\"divider\" /></h3>";
     echo getSubmissionTableString($user_id, true, 10, "profile_submissions.php?user=$user_id&page=1");
 

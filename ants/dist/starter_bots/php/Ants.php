@@ -60,7 +60,7 @@ class Ants
         echo("go\n");
         flush();
     }
-    
+
     public function setup($data)
     {
         foreach ( $data as $line) {
@@ -108,7 +108,7 @@ class Ants
             $this->map[$row][$col] = LAND;
         }
         $this->food = array();
-        
+
         $this->myHills = array();
         $this->enemyHills = array();
 

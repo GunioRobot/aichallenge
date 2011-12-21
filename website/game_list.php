@@ -40,7 +40,7 @@ function get_last_game_id($type=NULL, $id=NULL) {
     $last_game_id = 0;
     if ($memcache) {
         if ($type === NULL) {
-            $$last_game_id = $memcache->get('l:all');            
+            $$last_game_id = $memcache->get('l:all');
         } else {
             $last_game_id = $memcache->get('l:'.$type.':'.$id);
         }
@@ -77,7 +77,7 @@ function get_query_results($page=0, $user_id=NULL, $submission_id=NULL, $map_id=
     $user_fields = array("user_id", "submission_id", "username", "version",
                          "player_id", "game_rank", "status", "skill", "mu", "sigma",
                          "skill_change", "mu_change", "sigma_change", "rank_before");
-    
+
     $page_count_query = "select_game_list_page_count";
     $list_query = "select_game_list";
     $list_type = NULL;
@@ -126,7 +126,7 @@ function get_query_results($page=0, $user_id=NULL, $submission_id=NULL, $map_id=
         $limit = $page_size;
     }
     $results = contest_query($list_query, $list_select_field, $list_id, $limit, $offset);
-    if ($results) {    
+    if ($results) {
         // loop through results, turning multiple rows for the same game into arrays
         $rows = array();
         $last_game_id = -1;
@@ -134,8 +134,8 @@ function get_query_results($page=0, $user_id=NULL, $submission_id=NULL, $map_id=
         while ($row = mysql_fetch_assoc($results)) {
             // get list type name
             if ($list_type && !$list_name && $row[$list_select_field] == $list_id) {
-                $list_name = $row[$list_id_field];                
-            }               
+                $list_name = $row[$list_id_field];
+            }
             if ($last_game_id !== $row['game_id']) {
                 if ($cur_row !== NULL) {
                     $rows[] = $cur_row;
@@ -160,9 +160,9 @@ function get_query_results($page=0, $user_id=NULL, $submission_id=NULL, $map_id=
     }
 }
 
-function create_game_list_json($page=0, $user_id=NULL, $submission_id=NULL, $map_id=NULL) {    
+function create_game_list_json($page=0, $user_id=NULL, $submission_id=NULL, $map_id=NULL) {
     list ($rows, $page_count, $list_type, $list_id, $list_name) = get_query_results($page, $user_id, $submission_id, $map_id);
-    
+
     if ($rows) {
         $json = array("fields" => array_keys($rows[0]),
                       "values" => array());
@@ -189,14 +189,14 @@ function create_game_list_json($page=0, $user_id=NULL, $submission_id=NULL, $map
 
 function create_game_list_table($page=0, $user_id=NULL, $submission_id=NULL, $map_id=NULL, $top=FALSE, $targetpage=NULL) {
     global $page_size;
-    
+
     // if cached copy does not exists, create html table
     list ($rows, $page_count, $list_type, $list_id, $list_name) = get_query_results($page, $user_id, $submission_id, $map_id, $top);
-    
+
     if (!$rows) {
         return '<h4>There are no games at this time.  Please check back later.</h4>';
     }
-            
+
     if ($list_type) {
         $page_string = '?'.$list_type.'='.$list_id.'&page=';
     } else {
@@ -237,7 +237,7 @@ function create_game_list_table($page=0, $user_id=NULL, $submission_id=NULL, $ma
                     $user_status = $row["status"][$i];
                     break;
                 }
-            }                
+            }
         }
 
         $oddity = $oddity == 'odd' ? 'even' : 'odd';  // quite odd?
@@ -290,7 +290,7 @@ function create_game_list_table($page=0, $user_id=NULL, $submission_id=NULL, $ma
     if (!$top) {
         $table .= '<div style="text-align:center">'.getPaginationString($page, $page_count, $page_size, $page_string)."</div>";
     }
-    
+
     return $table;
 }
 

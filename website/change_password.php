@@ -32,7 +32,7 @@ if (!logged_in_with_valid_credentials()) {
         $forgot_code = mysql_real_escape_string(stripslashes($_GET['code']));
         $naive_ip = mysql_real_escape_string($_SERVER['REMOTE_ADDR']);
         $real_ip = mysql_real_escape_string(getRealIpAddr());
-        
+
         $result = contest_query("log_login", $user_id, $naive_ip, $real_ip);
         if (!$result) {
           error_log("Could not write to log: " . mysql_error());
@@ -43,7 +43,7 @@ if (!logged_in_with_valid_credentials()) {
             unset($_SESSION['username']);
             unset($_SESSION['password']);
             unset($_SESSION['admin']);
-            unset($_SESSION['user_id']);            
+            unset($_SESSION['user_id']);
             header('index.php');
             die();
         }
@@ -76,7 +76,7 @@ if (!isset($_SESSION['forgotten']) || $_SESSION['forgotten'] === false) {
     <td><input name="old_password" type="password" id="old_password"></td>
   </tr>
 <?php
-} 
+}
 ?>
   <tr>
     <td>New Password</td>

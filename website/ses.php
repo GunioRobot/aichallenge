@@ -94,7 +94,7 @@ class SimpleEmailService
 
 	/**
 	* Lists the email addresses that have been verified and can be used as the 'From' address
-	* 
+	*
 	* @return An array containing two items: a list of verified email addresses, and the request id.
 	*/
 	public function listVerifiedEmailAddresses() {

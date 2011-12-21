@@ -138,7 +138,7 @@ int main(int argc, char *argv[]) {
                 char *test_cmd = get_line(backup);
 
                 if (strcmp(test_cmd, "go") == 0) {
-                    action = 0; 
+                    action = 0;
                     free(test_cmd);
                     break;
                 }
@@ -149,7 +149,7 @@ int main(int argc, char *argv[]) {
                 }
                 free(test_cmd);
             }
-            
+
             ++ins_data;
         }
 

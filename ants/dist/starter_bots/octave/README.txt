@@ -10,7 +10,7 @@ There's no need to compile! The only line required to run the bot (using the too
 An explanation of the files:
 Below is a fairly crude description of what each source file is used for:
     MyBot.m - Contains the main function that plays the game as well as the function to decide which moves to make and the function that ends the turn and prints 'go' to the server
-    
+
     state_functions.m - The "juice" of the bot. There's everything from the function that parses the input and saves everything in a struct state, to functions that compute distances between locations, update the information about visible squares, print the moves to the game server, reset the state, etc.
 
 REMARK: All the locations are stored 0-based in the state structure. In order to index the the state.grid you'll obviously have to add 1 to the row and column that are stored elsewhere (you can see examples of this in the code)
@@ -19,5 +19,5 @@ For some ideas on improving your bot from here, check out the tutorial and strat
 
 Author:
 Pedro Osório - 2011
-mebm.pedrosorio in the google mail 
+mebm.pedrosorio in the google mail
 

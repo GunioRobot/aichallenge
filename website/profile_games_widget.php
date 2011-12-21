@@ -46,7 +46,7 @@ $rowcount_query = <<<EOT
 select
     count(1)
 from
-    game g 
+    game g
 where
     (g.player_one = $submission or g.player_two = $submission)
 EOT;
@@ -87,7 +87,7 @@ union
     game g USE INDEX (loser_3)
     inner join submission s USE INDEX (submission_id) on s.submission_id = g.winner
     inner join user u USE INDEX (user_id) on u.user_id = s.user_id
-    where g.loser = $submission 
+    where g.loser = $submission
     )
 union
 (select

@@ -31,7 +31,7 @@ function [state] = makeMoves(state)
         stateOutput(state,DEBUG);
         fflush(DEBUG);
     end
-    
+
     %picks out moves for each ant (go NESW in this order of preference if there's no water)
     for ant=1:state.nmyAnts
         for d=1:TDIRECTIONS

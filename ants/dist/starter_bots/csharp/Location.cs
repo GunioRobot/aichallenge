@@ -72,7 +72,7 @@ namespace Ants {
 			}
 		}
 	}
-	
+
 	public class Ant : TeamLocation, IEquatable<Ant> {
 		public Ant (int row, int col, int team) : base (row, col, team) {
 		}

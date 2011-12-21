@@ -91,7 +91,7 @@ function check_credentials_forgot($user_id, $forgot_code) {
     while ($user = mysql_fetch_assoc($user_forgets)) {
         if (crypt($forgot_code, $user['cookie']) == $user['cookie']) {
             // found valid cookie, reset expire date
-            contest_query("delete_user_cookie", $user_id, $user['cookie']);     
+            contest_query("delete_user_cookie", $user_id, $user['cookie']);
             // update session vars
             $_SESSION['username']   = $user['username'];
             $_SESSION['admin']      = $user['admin'];
@@ -116,7 +116,7 @@ function check_credentials_cookie($user_id, $login_cookie) {
         if (crypt($login_cookie, $user['cookie']) == $user['cookie']) {
             // found valid cookie, reset expire date
             contest_query("update_user_cookie", $user_id, $user['cookie']);
-            setcookie('uid', $login_cookie, time()+60*60*24*5);        
+            setcookie('uid', $login_cookie, time()+60*60*24*5);
             // update session vars
             $_SESSION['username']   = $user['username'];
             $_SESSION['admin']      = $user['admin'];

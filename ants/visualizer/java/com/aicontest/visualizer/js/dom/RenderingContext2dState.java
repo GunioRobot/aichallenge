@@ -25,7 +25,7 @@ class RenderingContext2dState {
 	protected double shadowBlur = 0.0D;
 	protected Object shadowColor = new Color(0, 0, 0, 0);
 	protected AlphaComposite globalCompositeOperation = AlphaComposite.SrcOver;
-	
+
 	public RenderingContext2dState() {
 		transform = new AffineTransform();
 	}

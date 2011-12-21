@@ -37,7 +37,7 @@ is used as the text of the tab.
         # ruby code
     </div>
 </div>
-     
+
 */
 
 $(function () {
@@ -89,7 +89,7 @@ $(function () {
         }
         return new_set;
     }
-    
+
     // start of tab creation
     var tab_list = {};
     var tab_groups = [];
@@ -178,7 +178,7 @@ $(function () {
         select_tab(tab_groups[t][0]);
     }
     $('.tab_sync').each(function (i) {
-        var container = $(this);        
+        var container = $(this);
         container
             .css({ height: container.data('max_height') +        // content height
                            container.children().first().height() // button height

@@ -1,6 +1,6 @@
 // Change ownership of jail chroot files between the contest user and jail user
-// 
-// Expects CONTEST_UID, CONTEST_GID and JAIL_GID to be defined during 
+//
+// Expects CONTEST_UID, CONTEST_GID and JAIL_GID to be defined during
 // compilation
 
 #include <dirent.h>

@@ -45,7 +45,7 @@ function valid_username($s) {
 
 function create_new_organization( $org_name ) {
     global $memcache;
-    
+
     if ($memcache) {
         $memcache->delete('lookup:org_id');
         $memcache->delete('lookup:org_name');
@@ -296,7 +296,7 @@ if (count($errors) > 0) {
 if ($send_email == 0) {
   echo "<p>Confirmation emails are not being sent!</p>";
   echo "<p>This should only be used when setting up a test server.</p>";
-  echo '<p><a href="account_confirmation.php?confirmation_code=' . 
+  echo '<p><a href="account_confirmation.php?confirmation_code=' .
        $confirmation_code . '">Click Here</a> to activate the account.</p>';
 }
 

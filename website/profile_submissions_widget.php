@@ -129,7 +129,7 @@ EOT;
         $skill = $status_class == "success" ? nice_skill($row['skill'], $row['mu'], $row['sigma']) : "-"; // trueskill formula
         $games = $row["game_count"];
         $game_rate = "".($row['game_rate'] == NULL ? "" : round($row["game_rate"],0));
-        
+
         $table .= "<tr class=\"$row_class\">";
         $table .= "  <td>".nice_version($version, $timestamp, $submission_id)."</td>";
         $table .= "  <td>". nice_datetime_span($timestamp) ."</td>";

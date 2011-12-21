@@ -101,7 +101,7 @@ class FS native "FS" {
   String readFileSync(String filename, [String encoding = 'utf8']) native;
 
   String realpathSync(String path) native;
-  
+
   void writeSync(int fd, String text) native;
 }
 

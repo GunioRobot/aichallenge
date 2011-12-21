@@ -75,8 +75,8 @@ class Ants {
 						case "turntime"     : _turntime      = value; break;
 						case "viewradius2"  : _viewradius2   = value; break;
 						case "attackradius2": _attackradius2 = value; break;
-						case "spawnradius2" : _spawnradius2  = value; break; 
-						case "player_seed"  : _player_seed   = value; break; 
+						case "spawnradius2" : _spawnradius2  = value; break;
+						case "player_seed"  : _player_seed   = value; break;
 						default:
 					}
 				}
@@ -275,7 +275,7 @@ class Ants {
 			assert(loc.row < _rows);
 		}
 		body {
-			return Loc( (loc.row + d.row + _rows) % _rows, 
+			return Loc( (loc.row + d.row + _rows) % _rows,
 			            (loc.col + d.col + _cols) % _cols );
 		}
 		unittest {
@@ -305,7 +305,7 @@ class Ants {
 			stdout.writefln("o %s %s %s", loc.row, loc.col, direction.key);
 		}
 
-		/// creates a new Ants instance and runs the given bot in it 
+		/// creates a new Ants instance and runs the given bot in it
 		static void run(IBot bot) {
 			auto ants = new Ants();
 			auto mapData = appender!(string)();
@@ -318,7 +318,7 @@ class Ants {
 						mapData = appender!(string)();
 						break;
 					case "go":
-						ants._endtime = TickDuration.currSystemTick(); 
+						ants._endtime = TickDuration.currSystemTick();
 						ants._endtime += TickDuration.from!"msecs"(ants._turntime);
 						ants.update(mapData.data);
 						bot.doTurn(ants);

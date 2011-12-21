@@ -46,7 +46,7 @@ package body Strategy is
       -- (Attempt to go in the following directions in this order: N, E, S, W)
 
       -- While it is not possible to go in the requested direction, look at the next direction
-      -- in the list. 
+      -- in the list.
       while Sq.Kind not in Ants.Passable_Tile or else Sq.Kind not in Ants.Unoccupied_Tile loop
          Dont_Crash := Dont_Crash + 1;
          if Dont_Crash > 4 then

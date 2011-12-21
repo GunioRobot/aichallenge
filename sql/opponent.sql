@@ -29,7 +29,7 @@ if @min_players <= @max_players then
     set @twiceBetaSq = 2 * pow(@init_beta, 2);
 
     if the_user_id is null then
-        
+
         -- Step 1: select the seed player
         select s.user_id, s.submission_id, s.mu, s.sigma
         into @seed_id, @submission_id, @mu, @sigma
@@ -52,15 +52,15 @@ if @min_players <= @max_players then
                  u.max_game_id asc,
                  s.user_id asc
         limit 1;
-    
+
     else
-    
+
         select s.user_id, s.submission_id, s.mu, s.sigma
         into @seed_id, @submission_id, @mu, @sigma
         from submission s
         where s.user_id = the_user_id
             and s.latest = 1 and s.status in (40, 100);
-        
+
     end if;
 
     -- debug statement
@@ -68,12 +68,12 @@ if @min_players <= @max_players then
     create table tmp_matchup
     select * from matchup;
     create index tmp_matchup_matchup_id_idx on tmp_matchup (matchup_id);
-    
+
     drop table if exists tmp_matchup_player;
     create table tmp_matchup_player
     select * from matchup_player;
     create index tmp_matchup_player_matchup_user_id_idx on tmp_matchup_player (matchup_id, user_id);
-    
+
     -- create matchup and add seed player
     -- worker_id of 0 prevents workers from pulling the task
     set @matchup_id = 0;
@@ -118,7 +118,7 @@ if @min_players <= @max_players then
        where priority > 0
     ) t
     order by 8, 6;
-    
+
     select p.players
     into @players
     from (
@@ -188,7 +188,7 @@ if @min_players <= @max_players then
             from user
         ) g
         group by 1;
-     
+
     -- debug statement
     select @players;
 
@@ -256,9 +256,9 @@ if @min_players <= @max_players then
 	            group by mp1.user_id, mp2.user_id
 	        ) g
 	        group by 1, 2;
-        
+
 	        set @last_user_id = -1;
-	        
+
             set @pareto = (5 / pow(rand(), 0.65));
             -- debug statement
             -- select list of opponents with match quality
@@ -317,12 +317,12 @@ if @min_players <= @max_players then
             -- where the minimum is 5 and 80% of the values will be <= 18
             -- due to the least played ordering, after a submission is established
             -- it will tend to pull from the lowest match quality, so the opponent
-            -- rank difference selected will also follow a pareto distribution 
+            -- rank difference selected will also follow a pareto distribution
             where s.seq < @pareto
             order by o.game_count,
                 s.game_count,
                 s.match_quality desc;
-            
+
             -- select list of opponents with match quality
             select s.user_id, s.submission_id, s.mu, s.sigma
             into @last_user_id, @last_submission_id, @last_mu, @last_sigma
@@ -377,13 +377,13 @@ if @min_players <= @max_players then
             -- where the minimum is 10 and 80% of the values will be <= 30
             -- due to the least played ordering, after a submission is established
             -- it will tend to pull from the lowest match quality, so the opponent
-            -- rank difference selected will also follow a pareto distribution 
+            -- rank difference selected will also follow a pareto distribution
             where s.seq < @pareto
             order by o.game_count,
                 s.game_count,
                 s.match_quality desc
             limit 1;
-                
+
             -- debug statement
             select @last_user_id as user_id, @last_submission_id as submission_id, @last_mu as mu, @last_sigma as sigma, submission.rank
             from submission
@@ -399,18 +399,18 @@ if @min_players <= @max_players then
                 set @player_count = @player_count + 1;
                 set @cur_user_id = @last_user_id;
             end if;
-            
+
     end while;
 
     if @abort = 1 then
-    
+
         select "aborting" as status, @abort_reason as abort_reason;
 
         update tmp_matchup
         set worker_id = -1,
             error = concat('abort matchup: ', @abort_reason)
         where matchup_id = @matchup_id;
-        
+
         -- debug statement
         select * from matchup m inner join matchup_player mp on mp.matchup_id = m.matchup_id where m.matchup_id = @matchup_id;
 
@@ -440,7 +440,7 @@ if @min_players <= @max_players then
             and (g.timestamp is null or g.timestamp > timestampadd(hour, -24, current_timestamp))
         group by m.map_id
         order by count(gp.user_id), count(*), priority, map_id desc;
-        
+
         select m.map_id, m.max_turns
         into @map_id, @max_turns
         from map m
@@ -465,15 +465,15 @@ if @min_players <= @max_players then
         group by m.map_id
         order by count(gp.user_id), count(*), priority, map_id desc
         limit 1;
-        
+
         update tmp_matchup
         set map_id = @map_id,
             max_turns = @max_turns
         where matchup_id = @matchup_id;
-    
+
         -- debug statement
         select * from map where map_id = @map_id;
-        
+
         -- Step 4.5: put players into map positions
         update tmp_matchup_player
         inner join (
@@ -490,15 +490,15 @@ if @min_players <= @max_players then
             on tmp_matchup_player.user_id = m2.user_id
         set player_id = m2.position
         where matchup_id = @matchup_id;
-    
+
         -- debug statement
         select * from matchup m inner join matchup_player mp on mp.matchup_id = m.matchup_id where m.matchup_id = @matchup_id;
-    
+
         -- turn matchup on
         update tmp_matchup
         set worker_id = null
         where matchup_id = @matchup_id;
-    
+
         -- return new matchup id
         select @matchup_id as matchup_id;
 
@@ -508,7 +508,7 @@ else
 
     -- debug statement
     select "matchup skipped because available players is less than smallest map";
-    
+
 end if;
 
 end$$

@@ -10,8 +10,8 @@ function validate_user_cookie() {
     $parts = explode("-",$_COOKIE['uid'], 2);
     if (count($parts)<2 || !is_numeric($parts[0])) {
         return false;
-    }    
-    return array(intval($parts[0]), $_COOKIE['uid']);    
+    }
+    return array(intval($parts[0]), $_COOKIE['uid']);
 }
 
 function logged_in_with_valid_credentials() {

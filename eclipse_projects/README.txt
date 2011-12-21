@@ -4,7 +4,7 @@ INFO
 This is a place that you can use as an Eclipse workspace and import projects
 into. The projects work in Eclipse 3.7 (Indigo) with various language plugins.
 The "Platform Runtime Binary" is enough to get started, but any of the bundles
-will do as well. Start Eclipse and set the workspace to "ants/eclipse_workspace" 
+will do as well. Start Eclipse and set the workspace to "ants/eclipse_workspace"
 inside your working copy of the git repository. Then install the plugins and
 import projects according to the table below.
 Most Eclipse plugins offer detailed code analysis and formatting options that

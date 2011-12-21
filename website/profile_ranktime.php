@@ -1,4 +1,4 @@
-<?php 
+<?php
 $user_id = $_GET["user"];
 if(!filter_var($user_id, FILTER_VALIDATE_INT)) {
     header("Location: blank.gif");
@@ -33,7 +33,7 @@ from
     submission s
     inner join ranking r on r.submission_id = s.submission_id
     inner join leaderboard l on l.leaderboard_id = r.leaderboard_id
-where 
+where
     s.user_id = '$user_id'
 group by
     date(l.timestamp),
@@ -113,7 +113,7 @@ if ($result) {
     // Draw Data
     $Test->drawTreshold(1,100,100,100);
     $Test->drawLineGraph($DataSet->GetData(),$DataSet->GetDataDescription());
-    //$Test->drawCubicCurve($DataSet->GetData(),$DataSet->GetDataDescription(),1);  
+    //$Test->drawCubicCurve($DataSet->GetData(),$DataSet->GetDataDescription(),1);
 
     // Draw Legend
     $Test->drawLegend(465,75,$DataSet->GetDataDescription(),225,225,225,0,0,0,100,100,100,FALSE);

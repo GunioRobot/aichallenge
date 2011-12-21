@@ -42,8 +42,8 @@ var visualize = function (i) {
             this.innerHTML = '';
             var applet = document.createElement('applet');
             var idx = java_codebase.indexOf('=');
-            var codeBaseAttribute = java_codebase.substring(0, idx); 
-            var codeBaseValue = java_codebase.substring(idx + 2, java_codebase.length - 1); 
+            var codeBaseAttribute = java_codebase.substring(0, idx);
+            var codeBaseValue = java_codebase.substring(idx + 2, java_codebase.length - 1);
             applet.setAttribute(codeBaseAttribute, codeBaseValue);
             applet.setAttribute('code', 'com.aicontest.visualizer.VisualizerApplet');
             applet.setAttribute('width', width);
@@ -179,7 +179,7 @@ function visualizer_widget($replay, $interactive=true, $width=690, $height=700) 
     <?php
 
     // Write script tags if we use the canvas visualizer
-    if (!isset ($java)) { 
+    if (!isset ($java)) {
         visualizer_activate(false);
         ?>
             <script type="text/javascript">

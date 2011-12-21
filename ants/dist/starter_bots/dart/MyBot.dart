@@ -2,13 +2,13 @@
 
 class MyBot implements Bot {
   Ants ants;
-  
+
   MyBot(Ants this.ants);
-  
+
   void onReady() {
     ants.finishTurn();
   }
-  
+
   void onTurn() {
     var myAnts = ants.myAnts();
 		var directions = ['N', 'E', 'S', 'W'];
@@ -25,7 +25,7 @@ class MyBot implements Bot {
 		}
 		ants.finishTurn();
   }
-  
+
   void onEnd() {
   }
 }

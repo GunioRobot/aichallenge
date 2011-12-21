@@ -3,7 +3,7 @@
 If you don't use the Sun/Oracle JRE or don't have the JAVA_HOME environment
 variable, you need to setup the path to the Java plugin for the ant build
 script. Create a file named "local.properties" next to "default.properties" and
-set the "java.plugin" variable. The following is an example location for 
+set the "java.plugin" variable. The following is an example location for
 IcedTea 6 on Gentoo Linux:
 
 java.plugin: /opt/icedtea6-web-bin/share/icedtea-web/plugin.jar

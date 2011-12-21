@@ -21,7 +21,7 @@ var bot = {
 		ants.finishTurn();
     },
     'onEnd': function() {
-    
+
     }
 }
 ants.start(bot);

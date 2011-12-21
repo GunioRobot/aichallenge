@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $title="Login Failed";
 include 'header.php';

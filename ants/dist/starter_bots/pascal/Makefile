@@ -24,5 +24,5 @@ $(RELEASE_BIN): $(SOURCES)
 	mkdir -p release
 	$(FPC) $(FLAGS) $(RELEASE_FLAGS) MyBot.pas
 
-clean: 
+clean:
 	-rm -rf release debug

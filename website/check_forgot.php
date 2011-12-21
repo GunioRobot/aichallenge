@@ -19,20 +19,20 @@ if (isset($_POST['username'])) {
         $forgot_code = urlencode($forgot_code);
         $mail_subject = "AI Challenge Temporary Access";
         $mail_content = "Hello $username,
-        
+
 You are receiving this email because you have requested temporary access to the aichallenge.org website to reset your password.  If you did not request this access then please ignore it.  To proceed to the password reset page, click the following link:
 
 http://aichallenge.org/change_password.php?user_id=$user_id&code=$forgot_code
 
 If successful you will be logged in and able to change your password.  This access is only granted for 2 hours from the time you initiated the request.
-        
-Cheers, the aichallenge.org staff.";        
+
+Cheers, the aichallenge.org staff.";
         if ($send_email == 1 && strcmp($user_email, "donotsend") != 0) {
             $mail_accepted = send_email($user_email, $mail_subject, $mail_content);
             if (!$mail_accepted) {
                 die("Sorry email sending failed. Please try back later");
             }
-            header("location:forgot_instructions.php");    
+            header("location:forgot_instructions.php");
         } else {
             if ($debug == 1) {
                 require_once('header.php');

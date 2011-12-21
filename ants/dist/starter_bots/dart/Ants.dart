@@ -27,7 +27,7 @@ class Config {
   int food_rate;
   int food_turn;
   int food_start;
-  
+
   void set(String key, String value) {
     switch(key) {
       case 'rows': rows = parseInt(value); break;
@@ -98,13 +98,13 @@ class Ants {
 	bool vision;
 	bool visionOffsets;
 
-  // landtypes	
+  // landtypes
 	final static int LAND = 0;
 	final static int DEAD = 1;
 	final static int ANT = 2;
 	final static int WATER = 3;
 	final static int FOOD = 4;
-	
+
 	Ants() {
 	  currentTurn = -1;
 	  vision = false;
@@ -114,7 +114,7 @@ class Ants {
 	  orders = new List<Order>();
 	  ants = new List<Ants>();
 	}
-	
+
 	void start(Bot botInput) {
 		this.bot = botInput;
 		String partialline = "";
@@ -161,7 +161,7 @@ class Ants {
 			this.bot.onEnd();
 			return;
 		}
-		
+
 		if (line[0] === 'turn') {
 			this.currentTurn = parseInt(line[1]);
 			if (this.currentTurn > 0) {
@@ -234,7 +234,7 @@ class Ants {
 	void issueOrder(int row, int col, String direction) {
 		this.orders.addLast(new Order(row, col, direction));
 	}
-	
+
 	void finishTurn() {
 		for (int i = 0, len = this.orders.length; i < len; ++i) {
 			Order order = this.orders[i];
@@ -244,7 +244,7 @@ class Ants {
 		fs.writeSync(process.stdout.fd,'go\n');
 		process.stdout.flush();
 	}
-	
+
 	Tile tileInDirection(int row, int col, String direction) {
 		int rowd = 0;
 		int cold = 0;
@@ -271,7 +271,7 @@ class Ants {
 		}
 		return this.map[newrow][newcol];
 	}
-	
+
 	List<Hill> myHills() {
 		List<Hill> result = new List<Hill>();
 		for (int i = 0, len = this.hills.length; i < len; ++i) {
@@ -282,7 +282,7 @@ class Ants {
 		}
 		return result;
 	}
-	
+
 	List<Hill> enemyHills() {
 		List<Hill> result = new List<Hill>();
 		for (int i = 0, len = this.hills.length; i < len; ++i) {
@@ -293,7 +293,7 @@ class Ants {
 		}
 		return result;
 	}
-	
+
 	List<Ant> myAnts() {
 		List<Ant> result = new List<Ant>();
 		for (int i = 0, len = this.ants.length; i < len; ++i) {
@@ -304,7 +304,7 @@ class Ants {
 		}
 		return result;
 	}
-	
+
 	List<Ant> enemyAnts() {
 		List<Ant> result = [];
 		for (int i = 0, len = this.ants.length; i < len; ++i) {
@@ -315,11 +315,11 @@ class Ants {
 		}
 		return result;
 	}
-	
+
 	bool passable(int row, int col) {
 		return (this.map[row][col].type !== WATER);
 	}
-	
+
 	bool unoccupied(int row, int col) {
 		return (this.map[row][col].type === LAND ||
 				this.map[row][col].type === DEAD);
@@ -357,7 +357,7 @@ class Ants {
 		var dc = Math.min(Math.abs(fromCol - toCol), this.config.cols - Math.abs(fromCol - toCol));
 		return Math.sqrt((dr * dr) + (dc * dc));
 	}
-	
+
 	List<String> direction(int fromRow, int fromCol, int toRow, int toCol) {
 		List<String> d = new List<String>();
 		fromRow = fromRow % this.config.rows;
@@ -398,7 +398,7 @@ class Ants {
 		}
 		return d;
 	}
-	
+
 	var visible(int row, int col) {
 		if (this.vision === false || !this.vision || this.vision.length === 0) {
 			this.vision = [];

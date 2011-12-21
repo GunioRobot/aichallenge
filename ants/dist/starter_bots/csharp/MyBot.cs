@@ -10,7 +10,7 @@ namespace Ants {
 
 			// loop through all my ants and try to give them orders
 			foreach (Ant ant in state.MyAnts) {
-				
+
 				// try all the directions
 				foreach (Direction direction in Ants.Aim.Keys) {
 
@@ -25,18 +25,18 @@ namespace Ants {
 						break;
 					}
 				}
-				
+
 				// check if we have time left to calculate more orders
 				if (state.TimeRemaining < 10) break;
 			}
-			
+
 		}
-		
-		
+
+
 		public static void Main (string[] args) {
 			new Ants().PlayGame(new MyBot());
 		}
 
 	}
-	
+
 }

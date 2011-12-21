@@ -7,10 +7,10 @@ import (
 func TestMap(t *testing.T) {
 	m := NewMap(4, 3)
 	m.Reset()
-	if m.String() != `. . . 
-. . . 
-. . . 
-. . . 
+	if m.String() != `. . .
+. . .
+. . .
+. . .
 ` {
 		t.Errorf("map is wrong size, got `%s`", m)
 	}
@@ -52,10 +52,10 @@ func TestMap(t *testing.T) {
 	m.AddHill(m.FromRowCol(1, 0), HILL_1)
 	m.AddAnt(m.FromRowCol(1, 0), ANT_1)
 
-	if m.String() != `1 . b 
-B . . 
-. . a 
-A 0 . 
+	if m.String() != `1 . b
+B . .
+. . a
+A 0 .
 ` {
 		t.Errorf("map put ants in wrong place, got `%s`", m)
 	}

@@ -1,7 +1,7 @@
 
-    
 
-  
+
+
 
 <!DOCTYPE html>
 <html>
@@ -14,7 +14,7 @@
     <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub" />
 
     <link href="https://d3nwyuy0nl342s.cloudfront.net/709540747571a12d9ee0e981881190bbacde01fe/stylesheets/bundle_github.css" media="screen" rel="stylesheet" type="text/css" />
-    
+
 
     <script type="text/javascript">
       if (typeof console == "undefined" || typeof console.log == "undefined")
@@ -25,20 +25,20 @@
         assetHost: 'https://d3nwyuy0nl342s.cloudfront.net'
       }
       var github_user = 'Janzert'
-      
+
     </script>
     <script src="https://d3nwyuy0nl342s.cloudfront.net/javascripts/jquery/jquery-1.4.2.min.js" type="text/javascript"></script>
     <script src="https://d3nwyuy0nl342s.cloudfront.net/41dfe91ba9fe9ea8b57f692fadf7200ab23e7e09/javascripts/bundle_github.js" type="text/javascript"></script>
 
 
-    
+
     <script type="text/javascript" charset="utf-8">
       GitHub.spy({
         repo: "nsp/JSkills"
       })
     </script>
 
-    
+
   <link rel='canonical' href='/nsp/JSkills/blob/c6a9d9a5b574950710a1059590fa8c3136c43472/License.txt'>
 
   <link href="https://github.com/nsp/JSkills/commits/master.atom" rel="alternate" title="Recent Commits to JSkills:master" type="application/atom+xml" />
@@ -51,9 +51,9 @@
       GitHub.currentPath = 'License.txt';
       GitHub.masterBranch = "master";
 
-      
+
     </script>
-  
+
 
         <script type="text/javascript">
       var _gaq = _gaq || [];
@@ -69,51 +69,51 @@
       })();
     </script>
 
-    
+
   </head>
 
-  
+
 
   <body class="logged_in page-blob  env-production">
-    
 
-    
 
-    
 
-    
+
+
+
+
 
     <div class="subnavd" id="main">
       <div id="header" class="true">
-        
+
           <a class="logo boring" href="https://github.com/">
-            
+
             <img alt="github" class="default" height="45" src="https://d3nwyuy0nl342s.cloudfront.net/images/modules/header/logov5.png" />
             <!--[if (gt IE 8)|!(IE)]><!-->
             <img alt="github" class="hover" height="45" src="https://d3nwyuy0nl342s.cloudfront.net/images/modules/header/logov5-hover.png" />
             <!--<![endif]-->
           </a>
-        
-        
-          
 
 
 
 
 
-  
+
+
+
+
     <div class="userbox">
       <div class="avatarname">
         <a href="https://github.com/Janzert"><img src="https://secure.gravatar.com/avatar/156a9300f7d83236d4edd631c779a14c?s=140&d=https://d3nwyuy0nl342s.cloudfront.net%2Fimages%2Fgravatars%2Fgravatar-140.png" alt="" width="20" height="20"  /></a>
         <a href="https://github.com/Janzert" class="name">Janzert</a>
 
-        
-        
+
+
       </div>
       <ul class="usernav">
         <li><a href="https://github.com/">Dashboard</a></li>
         <li>
-          
+
           <a href="https://github.com/inbox">Inbox</a>
           <a href="https://github.com/inbox" class="unread_count ">0</a>
         </li>
@@ -121,12 +121,12 @@
         <li><a href="/logout">Log Out</a></li>
       </ul>
     </div><!-- /.userbox -->
-  
 
 
-        
+
+
         <div class="topsearch">
-  
+
     <form action="/search" id="top_search_form" method="get">
       <a href="/search" class="advanced-search tooltipped downwards" title="Advanced Search">Advanced Search</a>
       <div class="search placeholder-field js-placeholder-field">
@@ -141,56 +141,56 @@
     <ul class="nav">
       <li><a href="/explore">Explore GitHub</a></li>
       <li><a href="https://gist.github.com">Gist</a></li>
-      
+
       <li><a href="/blog">Blog</a></li>
-      
+
       <li><a href="http://help.github.com">Help</a></li>
     </ul>
-  
+
 </div>
 
       </div>
 
-      
-      
-        
+
+
+
     <div class="site">
       <div class="pagehead repohead vis-public fork   instapaper_ignore readability-menu">
 
-      
+
 
       <div class="title-actions-bar">
         <h1>
           <a href="/nsp">nsp</a> / <strong><a href="/nsp/JSkills">JSkills</a></strong>
-          
+
             <span class="fork-flag">
-              
+
               <span class="text">forked from <a href="/moserware/Skills">moserware/Skills</a></span>
             </span>
-          
-          
+
+
         </h1>
 
-        
-    <ul class="actions">
-      
 
-      
+    <ul class="actions">
+
+
+
         <li class="for-owner" style="display:none"><a href="/nsp/JSkills/admin" class="minibutton btn-admin "><span><span class="icon"></span>Admin</span></a></li>
         <li>
           <a href="/nsp/JSkills/toggle_watch" class="minibutton btn-watch " id="watch_button" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'e2bd80558c58b41741a66be865c3d27f235e1200'); f.appendChild(s);f.submit();return false;" style="display:none"><span><span class="icon"></span>Watch</span></a>
           <a href="/nsp/JSkills/toggle_watch" class="minibutton btn-watch " id="unwatch_button" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'e2bd80558c58b41741a66be865c3d27f235e1200'); f.appendChild(s);f.submit();return false;" style="display:none"><span><span class="icon"></span>Unwatch</span></a>
         </li>
-        
-          
+
+
             <li class="for-notforked" style="display:none"><a href="/nsp/JSkills/fork" class="minibutton btn-fork " id="fork_button" onclick="var f = document.createElement('form'); f.style.display = 'none'; this.parentNode.appendChild(f); f.method = 'POST'; f.action = this.href;var s = document.createElement('input'); s.setAttribute('type', 'hidden'); s.setAttribute('name', 'authenticity_token'); s.setAttribute('value', 'e2bd80558c58b41741a66be865c3d27f235e1200'); f.appendChild(s);f.submit();return false;"><span><span class="icon"></span>Fork</span></a></li>
             <li class="for-hasfork" style="display:none"><a href="#" class="minibutton btn-fork " id="your_fork_button"><span><span class="icon"></span>Your Fork</span></a></li>
-          
+
 
           <li id='pull_request_item' class='nspr' style='display:none'><a href="/nsp/JSkills/pull/new/master" class="minibutton btn-pull-request "><span><span class="icon"></span>Pull Request</span></a></li>
-        
-      
-      
+
+
+
       <li class="repostats">
         <ul class="repo-stats">
           <li class="watchers"><a href="/nsp/JSkills/watchers" title="Watchers" class="tooltipped downwards">5</a></li>
@@ -201,21 +201,21 @@
 
       </div>
 
-        
+
   <ul class="tabs">
     <li><a href="/nsp/JSkills" class="selected" highlight="repo_source">Source</a></li>
     <li><a href="/nsp/JSkills/commits/master" highlight="repo_commits">Commits</a></li>
     <li><a href="/nsp/JSkills/network" highlight="repo_network">Network</a></li>
     <li><a href="/nsp/JSkills/pulls" highlight="repo_pulls">Pull Requests (0)</a></li>
 
-    
 
-    
-      
+
+
+
       <li><a href="/nsp/JSkills/issues" highlight="issues">Issues (4)</a></li>
-    
 
-            
+
+
     <li><a href="/nsp/JSkills/graphs" highlight="repo_graphs">Graphs</a></li>
 
     <li class="contextswitch nochoices">
@@ -230,49 +230,49 @@
   <div style="display:none" id="pl-homepage"><p><em class="placeholder">click here to add a homepage</em></p></div>
 
   <div class="subnav-bar">
-  
+
   <ul>
     <li>
       <a href="/nsp/JSkills/branches" class="dropdown">Switch Branches (2)</a>
       <ul>
-        
-          
-          
+
+
+
             <li><a href="/nsp/JSkills/blob/csharp/License.txt" data-name="csharp">csharp</a></li>
-          
-        
-          
+
+
+
             <li><strong>master &#x2713;</strong></li>
-            
+
       </ul>
     </li>
     <li>
       <a href="#" class="dropdown ">Switch Tags (1)</a>
               <ul>
-                      
+
               <li><a href="/nsp/JSkills/blob/0.9.0/License.txt" data-name="0.9.0">0.9.0</a></li>
-            
+
                   </ul>
-      
+
     </li>
     <li>
-    
+
     <a href="/nsp/JSkills/branches" class="manage">Branch List</a>
-    
+
     </li>
   </ul>
 </div>
 
-  
-  
-  
-  
-  
-  
 
 
 
-        
+
+
+
+
+
+
+
     <div id="repo_details" class="metabox clearfix">
       <div id="repo_details_loader" class="metabox-loader" style="display:none">Sending Request&hellip;</div>
 
@@ -280,11 +280,11 @@
 
       <div id="repository_desc_wrapper">
       <div id="repository_description" rel="repository_description_edit">
-        
+
           <p>A detailed implementation of the TrueSkill algorithm in the Java language.
             <span id="read_more" style="display:none">&mdash; <a href="#readme">Read more</a></span>
           </p>
-        
+
       </div>
 
       <div id="repository_description_edit" style="display:none;" class="inline-edit">
@@ -297,7 +297,7 @@
         </form>
       </div>
 
-      
+
       <div class="repository-homepage" id="repository_homepage" rel="repository_homepage_edit">
         <p><a href="http://" rel="nofollow"></a></p>
       </div>
@@ -314,15 +314,15 @@
       </div>
       <div class="rule "></div>
       <div id="url_box" class="url-box">
-  
+
 
   <ul class="clone-urls">
-    
-      
+
+
       <li id="http_clone_url"><a href="https://github.com/nsp/JSkills.git" data-permissions="Read-Only">HTTP</a></li>
       <li id="public_clone_url"><a href="git://github.com/nsp/JSkills.git" data-permissions="Read-Only">Git Read-Only</a></li>
-    
-    
+
+
   </ul>
   <input type="text" spellcheck="false" id="url_field" class="url-field" />
         <span style="display:none" id="url_box_clippy"></span>
@@ -365,7 +365,7 @@
         <input class="tree-finder-input" type="text" name="query" autocomplete="off" spellcheck="false">
       </div>
 
-      
+
         <div class="octotip">
           <p>
             <a href="/nsp/JSkills/dismiss-tree-finder-help" class="dismiss js-dismiss-tree-list-help" title="Hide this notice forever">Dismiss</a>
@@ -374,7 +374,7 @@
             <span class="kbd">enter</span> to view files.
           </p>
         </div>
-      
+
 
       <table class="tree-browser" cellpadding="0" cellspacing="0">
         <tr class="js-header"><th>&nbsp;</th><th>name</th></tr>
@@ -399,13 +399,13 @@
     </div>
 
 
-        
+
 
       </div><!-- /.pagehead -->
 
-      
 
-  
+
+
 
 
 
@@ -422,7 +422,7 @@
   GitHub.actionName     = "show"
   GitHub.currentAction  = "blob#show"
 
-  
+
     GitHub.loggedIn = true
     GitHub.hasWriteAccess = false
     GitHub.hasAdminAccess = false
@@ -430,9 +430,9 @@
     GitHub.ignoredRepo = false
     GitHub.hasForkOfRepo = ""
     GitHub.hasForked = false
-  
 
-  
+
+
 </script>
 
 
@@ -443,16 +443,16 @@
 
   <div id="commit">
     <div class="group">
-        
+
   <div class="envelope commit">
     <div class="human">
-      
+
         <div class="message"><pre><a href="/nsp/JSkills/commit/c6a9d9a5b574950710a1059590fa8c3136c43472">Adding jar target</a> </pre></div>
-      
+
 
       <div class="actor">
         <div class="gravatar">
-          
+
           <img src="https://secure.gravatar.com/avatar/f7458df7cc9f892fb98b20eebb857b54?s=140&d=https://d3nwyuy0nl342s.cloudfront.net%2Fimages%2Fgravatars%2Fgravatar-140.png" alt="" width="30" height="30"  />
         </div>
         <div class="name"><a href="/nsp">nsp</a> <span>(author)</span></div>
@@ -461,17 +461,17 @@
         </div>
       </div>
 
-      
+
 
     </div>
     <div class="machine">
       <span>c</span>ommit&nbsp;&nbsp;<a href="/nsp/JSkills/commit/c6a9d9a5b574950710a1059590fa8c3136c43472" hotkey="c">c6a9d9a5b574950710a1</a><br />
       <span>t</span>ree&nbsp;&nbsp;&nbsp;&nbsp;<a href="/nsp/JSkills/tree/c6a9d9a5b574950710a1059590fa8c3136c43472/src" hotkey="t">c4f7a38046480a9b795a</a><br />
-      
+
         <span>p</span>arent&nbsp;
-        
+
         <a href="/nsp/JSkills/tree/da477121aea2acbcc2e6b93cceb75a9dd0503e67/src" hotkey="p">da477121aea2acbcc2e6</a>
-      
+
 
     </div>
   </div>
@@ -483,11 +483,11 @@
 
   <div id="slider">
 
-  
+
 
     <div class="breadcrumb" data-path="License.txt/">
       <b><a href="/nsp/JSkills/tree/c6a9d9a5b574950710a1059590fa8c3136c43472">JSkills</a></b> / License.txt       <span style="display:none" id="clippy_4547">License.txt</span>
-      
+
       <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000"
               width="110"
               height="14"
@@ -513,18 +513,18 @@
              wmode="opaque"
       />
       </object>
-      
+
 
     </div>
 
     <div class="frames">
       <div class="frame frame-center" data-path="License.txt/" data-canonical-url="/nsp/JSkills/blob/c6a9d9a5b574950710a1059590fa8c3136c43472/License.txt">
-        
+
           <ul class="big-actions">
-            
+
             <li><a class="file-edit-link minibutton" href="/nsp/JSkills/file-edit/__current_ref__/License.txt"><span>Edit this file</span></a></li>
           </ul>
-        
+
 
         <div id="files">
           <div class="file">
@@ -532,22 +532,22 @@
               <div class="info">
                 <span class="icon"><img alt="Txt" height="16" src="https://d3nwyuy0nl342s.cloudfront.net/images/icons/txt.png" width="16" /></span>
                 <span class="mode" title="File Mode">100644</span>
-                
+
                   <span>40 lines (31 sloc)</span>
-                
+
                 <span>2.162 kb</span>
               </div>
               <ul class="actions">
                 <li><a href="/nsp/JSkills/raw/master/License.txt" id="raw-url">raw</a></li>
-                
+
                   <li><a href="/nsp/JSkills/blame/master/License.txt">blame</a></li>
-                
+
                 <li><a href="/nsp/JSkills/commits/master/License.txt">history</a></li>
               </ul>
             </div>
-            
+
   <div class="data type-text">
-    
+
       <table cellpadding="0" cellspacing="0">
         <tr>
           <td>
@@ -594,15 +594,15 @@
 </pre>
           </td>
           <td width="100%">
-            
-              
+
+
                 <div class="highlight"><pre><div class='line' id='LC1'>﻿The core ideas used in this nsp.JSkills project were described in </div><div class='line' id='LC2'>&quot;TrueSkill (TM): A Bayesian Skill Rating System&quot; available at </div><div class='line' id='LC3'>http://research.microsoft.com/apps/pubs/default.aspx?id=67956</div><div class='line' id='LC4'><br/></div><div class='line' id='LC5'>The authors of the above paper have asked for a link to that article</div><div class='line' id='LC6'>as attribution in derived works.</div><div class='line' id='LC7'><br/></div><div class='line' id='LC8'>Some concepts were based on sample F# code that was written by Ralf Herbrich</div><div class='line' id='LC9'>Copyright (c) 2007, 2008 Microsoft Research Ltd, available at</div><div class='line' id='LC10'>http://blogs.technet.com/apg/archive/2008/06/16/trueskill-in-f.aspx</div><div class='line' id='LC11'><br/></div><div class='line' id='LC12'>All the C# code in this nsp.JSkills project is</div><div class='line' id='LC13'>Copyright (c) 2010 Jeff Moser &lt;jeff@moserware.com&gt;</div><div class='line' id='LC14'><br/></div><div class='line' id='LC15'>All the Java code in this nsp.JSkills project is</div><div class='line' id='LC16'>Copyright (c) 2010 Nate Parsons &lt;parsons.nate@gmail.com&gt;</div><div class='line' id='LC17'>&nbsp;</div><div class='line' id='LC18'>Redistribution and use in source and binary forms, with or without modification, are</div><div class='line' id='LC19'>permitted provided that the following conditions are met:</div><div class='line' id='LC20'><br/></div><div class='line' id='LC21'>&nbsp;&nbsp;&nbsp;1. Redistributions of source code must retain the above copyright notice, this list of</div><div class='line' id='LC22'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;conditions and the following disclaimer.</div><div class='line' id='LC23'><br/></div><div class='line' id='LC24'>&nbsp;&nbsp;&nbsp;2. Redistributions in binary form must reproduce the above copyright notice, this list</div><div class='line' id='LC25'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;of conditions and the following disclaimer in the documentation and/or other materials</div><div class='line' id='LC26'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;provided with the distribution.</div><div class='line' id='LC27'><br/></div><div class='line' id='LC28'>THIS SOFTWARE IS PROVIDED BY NATE PARSONS ``AS IS&#39;&#39; AND ANY EXPRESS OR IMPLIED</div><div class='line' id='LC29'>WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND</div><div class='line' id='LC30'>FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL NATE PARSONS OR</div><div class='line' id='LC31'>CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR</div><div class='line' id='LC32'>CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR</div><div class='line' id='LC33'>SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON</div><div class='line' id='LC34'>ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING</div><div class='line' id='LC35'>NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF</div><div class='line' id='LC36'>ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</div><div class='line' id='LC37'><br/></div><div class='line' id='LC38'>The views and conclusions contained in the software and documentation are those of the</div><div class='line' id='LC39'>authors and should not be interpreted as representing official policies, either expressed</div><div class='line' id='LC40'>or implied, of Jeff Moser or Nate Parsons.</div></pre></div>
-              
-            
+
+
           </td>
         </tr>
       </table>
-    
+
   </div>
 
 
@@ -610,7 +610,7 @@
         </div>
       </div>
     </div>
-  
+
 
   </div>
 
@@ -620,13 +620,13 @@
 </div>
 
     </div>
-  
-      
+
+
     </div>
 
     <div id="footer" class="clearfix">
       <div class="site">
-        
+
           <div class="sponsor">
             <a href="http://www.rackspace.com" class="logo">
               <img alt="Dedicated Server" height="36" src="https://d3nwyuy0nl342s.cloudfront.net/images/modules/footer/rackspace_logo.png?v2" width="38" />
@@ -635,10 +635,10 @@
             Servers</a> and<br/> <a href="http://www.rackspacecloud.com">Cloud
             Computing</a> of Rackspace Hosting<span>&reg;</span>
           </div>
-        
+
 
         <ul class="links">
-          
+
             <li class="blog"><a href="https://github.com/blog">Blog</a></li>
             <li><a href="https://github.com/about">About</a></li>
             <li><a href="https://github.com/contact">Contact &amp; Support</a></li>
@@ -647,7 +647,7 @@
             <li><a href="http://shop.github.com">Shop</a></li>
             <li><a href="http://developer.github.com">API</a></li>
             <li><a href="http://status.github.com">Status</a></li>
-          
+
         </ul>
         <ul class="sosueme">
           <li class="main">&copy; 2011 <span id="_rrt" title="0.08316s from fe4.rs.github.com">GitHub</span> Inc. All rights reserved.</li>
@@ -659,7 +659,7 @@
     </div><!-- /#footer -->
 
     <script>window._auth_token = "e2bd80558c58b41741a66be865c3d27f235e1200"</script>
-    
+
 
 <div id="keyboard_shortcuts_pane" class="instapaper_ignore readability-extra" style="display:none">
   <h2>Keyboard Shortcuts <small><a href="#" class="js-see-all-keyboard-shortcuts">(see all)</a></small></h2>
@@ -952,7 +952,7 @@ I think you should use an
 
   </div>
 </div>
-    
+
 
     <!--[if IE 8]>
     <script type="text/javascript" charset="utf-8">
@@ -966,9 +966,9 @@ I think you should use an
     </script>
     <![endif]-->
 
-    
-    
-    
+
+
+
     <script>(function(){var d=document;var e=d.createElement("script");e.async=true;e.src="https://d1ros97qkrwjf5.cloudfront.net/10/eum/rum.js	";var s=d.getElementsByTagName("script")[0];s.parentNode.insertBefore(e,s);})();NREUMQ.push(["nrf2","beacon-3.newrelic.com","2f94e4d8c2",64799,"dw1bEBZcX1RWRhoJFFMDWw0eUkdRXFpGSRZGC0MFEFZsXlZRUQ==",0,162,new Date().getTime()])</script>
   </body>
 </html>

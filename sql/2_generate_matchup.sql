@@ -10,7 +10,7 @@ inner join user u
 set status = 100
 where status = 40 and latest = 1
 and u.shutdown_date < current_timestamp();
-	
+
 -- get min and max players for matchmaking
 select min(players) into @min_players from map;
 
@@ -101,7 +101,7 @@ if @min_players <= @max_players then
     order by floor(user_count / (map_count / total_map_count)),
         floor(game_count / (map_count / total_map_count))
     limit 1;
-    
+
     -- debug statement
     -- select @players;
 
@@ -169,14 +169,14 @@ if @min_players <= @max_players then
     set @cur_user_id = @seed_id;
     set @last_user_id = -1;
     set @player_count = 1;
-    
+
     -- used to undo a matchup
     set @abort = 0;
     set @abort_reason = '';
 
     while @player_count < @players and @abort = 0 do
 
-        -- add opponents    
+        -- add opponents
 	    insert into tmp_opponent
 	        select user_id, opponent_id, sum(game_count) as game_count
 	        from (
@@ -201,7 +201,7 @@ if @min_players <= @max_players then
 	            group by mp1.user_id, mp2.user_id
 	        ) g
 	        group by 1, 2;
-        
+
             -- used to detect not finding an opponent
             set @last_user_id = -1;
 
@@ -259,13 +259,13 @@ if @min_players <= @max_players then
             -- where the minimum is 5 and 80% of the values will be <= 18
             -- due to the least played ordering, after a submission is established
             -- it will tend to pull from the lowest match quality, so the opponent
-            -- rank difference selected will also follow a pareto distribution 
-            where s.seq < (5 / pow(rand(), 0.65)) 
+            -- rank difference selected will also follow a pareto distribution
+            where s.seq < (5 / pow(rand(), 0.65))
             order by o.game_count,
                 s.game_count,
                 s.match_quality desc
             limit 1;
-                
+
             -- debug statement
             -- select @last_user_id as user_id, @last_submission_id as submission_id, @last_mu as mu, @last_sigma as sigma;
 

@@ -290,7 +290,7 @@ func (m *Map) RemoveDestination(loc Location) {
 	m.Destinations[loc] = false, false
 }
 
-//SafeDestination will tell you if the given location is a 
+//SafeDestination will tell you if the given location is a
 //safe place to dispatch an ant. It considers water and both
 //ants that have already sent an order and those that have not.
 func (m *Map) SafeDestination(loc Location) bool {

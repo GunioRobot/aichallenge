@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $title="Frequently Asked Questions";
 include 'header.php';

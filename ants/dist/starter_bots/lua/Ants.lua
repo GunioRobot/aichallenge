@@ -25,7 +25,7 @@ end
 
 function ants:processLine(line)
 	local type, values = line:match("^%s*(%S+)%s*(.-)%s*$")
-	
+
 	if type == "ready" then
 		for row = 0, self.config.rows - 1 do
 			for col = 0, self.config.cols - 1 do

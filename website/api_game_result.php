@@ -41,7 +41,7 @@ function game_result_error ($message) {
 
 if ($gamedata == null) {
     game_result_error("Did not recieve post data for game result as proper json.");
-}   
+}
 
 // always return received hash so worker can move on to next task
 echo json_encode(array( "hash" => $json_hash ));
@@ -165,7 +165,7 @@ if (array_key_exists('error', $gamedata)) {
     $language_ids = array();
     $result = contest_query("select_game_metadata",
                             $game_id);
-                            
+
     $high_rank = 99999;
     if ($result) {
         while ($meta_row = mysql_fetch_assoc($result)) {

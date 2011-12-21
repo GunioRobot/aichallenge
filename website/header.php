@@ -46,7 +46,7 @@ if (!logged_in_with_valid_credentials()) {
     if (list($user_id, $user_cookie) = validate_user_cookie()) {
         require_once('mysql_login.php');
         check_credentials_cookie($user_id, $user_cookie);
-    }    
+    }
 }
 
 flush();

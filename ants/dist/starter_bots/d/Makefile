@@ -8,7 +8,7 @@ SOURCES=$(wildcard *.d)
 
 all:
 	$(DMD) $(DMD_ARGS) -odbin -ofbin/$(OUTFILE) $(SOURCES)
-	
+
 unittest:
 	$(DMD) $(DMD_ARGS) -odbin -ofbin/$(OUTFILE).unittest -unittest $(SOURCES)
 	bin/$(OUTFILE).unittest

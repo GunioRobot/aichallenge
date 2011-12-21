@@ -237,7 +237,7 @@ exports.ants = {
 		toRow = toRow % this.config.rows;
 		fromCol = fromCol % this.config.cols;
 		toCol = toCol % this.config.cols;
-		
+
 		if (fromRow < toRow) {
 			if (toRow - fromRow >= this.config.rows/2) {
 				d.push('N');
@@ -253,7 +253,7 @@ exports.ants = {
 				d.push('N');
 			}
 		}
-		
+
 		if (fromCol < toCol) {
 			if (toCol - fromCol >= this.config.cols/2) {
 				d.push('W');
@@ -286,7 +286,7 @@ exports.ants = {
 					}
 				}
 			}
-			
+
 			for (var trow = 0; trow < this.config.rows; ++trow) {
 				for (var tcol = 0; tcol < this.config.cols; ++tcol) {
 					if (tcol === 0) {

@@ -19,5 +19,5 @@ HAI 1.2
         NOT Chance, O RLY?
             YA RLY, GTFO
         OIC
-    IM OUTTA YR InputTubes 
+    IM OUTTA YR InputTubes
 KTHXBYE

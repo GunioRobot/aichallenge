@@ -42,7 +42,7 @@ function get_last_game_id($type=NULL, $id=NULL) {
     $last_game_id = 0;
     if ($memcache) {
         if ($type === NULL) {
-            $$last_game_id = $memcache->get('l:all');            
+            $$last_game_id = $memcache->get('l:all');
         } else {
             $last_game_id = $memcache->get('l:'.$type.':'.$id);
         }
@@ -54,7 +54,7 @@ function get_last_game_id($type=NULL, $id=NULL) {
 }
 
 function cache_key($page=0, $org_id=NULL, $country_id=NULL, $language_id=NULL, $format='json') {
-    $cache_length = 120;    
+    $cache_length = 120;
     if ($org_id) {
         $key = get_last_game_id('o',$org_id)."r:o:" . strval($org_id);
         $cache_length = 1440;
@@ -118,7 +118,7 @@ function create_ranking_json($page=0, $org_id=NULL, $country_id=NULL, $language_
     }
     // get results
     $results = contest_query("select_rankings", $where, $limit);
-        
+
     $json = array("type" => $rank_type,
                   "page" => $page,
                   "page_count" => $page_count);
@@ -140,7 +140,7 @@ function create_ranking_json($page=0, $org_id=NULL, $country_id=NULL, $language_
             $filter_rank = $page_size * ($page - 1);
         } else {
             $filter_rank = NULL;
-        }   
+        }
         while ($rank_row = mysql_fetch_array($results, MYSQL_NUM)) {
             if ($filtered) {
                 if ($row["rank"]) {
@@ -234,7 +234,7 @@ function create_ranking_table($page=0, $org_id=NULL, $country_id=NULL, $language
         $filter_rank = $page_size * ($page - 1);
     } else {
         $filter_rank = NULL;
-    }   
+    }
     while ($row = mysql_fetch_assoc($results)) {
         $oddity = $oddity == 'odd' ? 'even' : 'odd';  // quite odd?
         $user_class = current_username() == $row["username"] ? ' user' : '';
@@ -254,7 +254,7 @@ function create_ranking_table($page=0, $org_id=NULL, $country_id=NULL, $language
         $table .= "<td class=\"username\">".nice_user($row["user_id"], $row["username"])."</td>";
         $table .= "<td class=\"country\">".nice_country($row["country_id"], $row["country"], $row["flag_filename"])."</td>";
         $table .= "<td class=\"org\">".nice_organization($row["org_id"], $row["org_name"])."</td>";
-        
+
         $programming_language = htmlentities($row["programming_language"], ENT_COMPAT, 'UTF-8');
         $programming_language_link = urlencode($row["programming_language"]);
         $table .= "<td>".nice_language($row["language_id"], $row["programming_language"])."</td>";
@@ -266,10 +266,10 @@ function create_ranking_table($page=0, $org_id=NULL, $country_id=NULL, $language
         $skill = nice_skill($row['skill'],$row['mu'],$row['sigma'],
                             $row['skill_change'],$row['mu_change'],$row['sigma_change']);
         $table .= "<td class=\"number\">$skill</td>";
-        
+
         $table .= "<td class=\"number\">".$row["game_count"]."</td>";
         $table .= "<td class=\"number\">".$row["game_rate"]."</td>";
-        
+
         $table .= "</tr>";
     }
     $table .= '</tbody>';
@@ -306,7 +306,7 @@ function get_ranking_table($page=0, $org_id=NULL, $country_id=NULL, $language_id
     $table = create_ranking_table($page, $org_id, $country_id, $language_id);
     if ($memcache) {
         $memcache->set($cache_key, $table, MEMCACHE_COMPRESSED, $cache_length);
-    }    
+    }
     return $table;
 }
 

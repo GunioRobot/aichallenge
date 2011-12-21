@@ -9,7 +9,7 @@ class Bot
   ready: ->
 
   # Here are the orders to the ants, executed each turn:
-  do_turn: -> 
+  do_turn: ->
     my_ants = ants.my_ants()
     for ant in my_ants
       for dir in directions

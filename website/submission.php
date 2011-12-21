@@ -19,7 +19,7 @@ require_once('memcache.php');
 
 function create_new_submission_for_current_user() {
     global $memcache;
-    
+
     if ($memcache) {
         $memcache->delete("lookup:submission_id");
     }
@@ -64,7 +64,7 @@ function current_submission_status() {
   }
 }
 
-/* 
+/*
  * Returns true if it finds a submission from within the last 10 minutes that
  * either successfully entered the contest or is still in the process of
  * entering.

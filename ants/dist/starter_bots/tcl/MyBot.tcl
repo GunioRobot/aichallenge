@@ -23,35 +23,35 @@ proc doTurn {} {
 
     # Loop through each ant.
     foreach index [getMyAnts] {
-    
+
         # The 'index' is a two-element list of row and col values for a tile.
         set row [lindex $index 0]
         set col [lindex $index 1]
 
-        
+
         # Check adjacent tiles in this order: north, east, south, west.
         foreach {direction offsetRow offsetCol} {N -1 0   E 0 1   S 1 0   W 0 -1} {
-    
-    
+
+
             # This is the index of the adjacent tile.
             incr offsetRow $row
             incr offsetCol $col
             set index "$offsetRow $offsetCol"
-    
-    
+
+
             # The index could be out of bounds, so allow for wrap-around map edges.
             set index [wrapIndex $index]
-    
-    
+
+
             # If this adjacent tile is not water, attempt to move there and continue with the next ant.
             if { [isPassable $index] } {
-            
+
                 # Instruct the game server to move ant from $row,$col in this direction.
                 output "o $row $col $direction"
-                
+
                 # Uncomment this line to see some debug info:
                 #puts stderr "turn $::Parameter(turn), moving ant to $index"
-                
+
                 # Next!
                 break
             }

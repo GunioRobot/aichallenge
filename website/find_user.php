@@ -11,7 +11,7 @@ if (!isset($username) || !$username) {
     if (count($users) === 1) {
         header("Location: profile.php?user=".$users[0]['user_id']);
         die();
-    }   
+    }
 }
 
 require_once("header.php");
@@ -30,7 +30,7 @@ if ($users === NULL) {
         echo "</ul>";
     } else {
         echo "<p>Sorry could not find any user with that name.</p>";
-    } 
+    }
 }
 
 require_once("footer.php");

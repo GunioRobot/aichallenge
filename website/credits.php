@@ -1,7 +1,7 @@
-<?php 
+<?php
 
 $title="Credits";
-include 'header.php'; 
+include 'header.php';
 
 ?>
 
